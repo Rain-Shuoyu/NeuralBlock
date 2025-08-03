@@ -1,12 +1,85 @@
-# React + Vite
+# 神经网络可视化工具
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+本项目是一个基于 React + Vite + ReactFlow 的神经网络结构可视化与交互式设计工具，支持节点拖拽、参数配置、智能输出层推断等功能，适合教学、实验和模型结构设计演示。
 
-Currently, two official plugins are available:
+## ✨ 主要特性
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 拖拽式神经网络结构搭建（输入层、卷积层、池化层、全连接层、输出层等）
+- 节点双击弹窗配置参数（如卷积核、步长、激活函数等）
+- 智能输出层形状与任务类型自动推断
+- 观察窗节点可实时查看中间特征形状
+- 支持多选、快捷键删除、画布缩放与拖拽
+- 画布节点自动防重叠，交互体验流畅
+- 直观的 UI 设计与丰富的视觉反馈
 
-## Expanding the ESLint configuration
+## 🚀 快速开始
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. 安装依赖
+
+```sh
+npm install
+```
+
+### 2. 启动开发环境
+
+```sh
+npm run dev
+```
+
+访问 http://localhost:5173 （或终端提示的端口）。
+
+### 3. 构建生产版本
+
+```sh
+npm run build
+```
+
+## 🖱️ 基本用法
+
+1. 从左侧工具栏拖拽节点到画布
+2. 双击节点弹出参数配置弹窗，设置参数后保存
+3. 拖拽节点连接点建立网络结构
+4. 输出层会根据网络结构自动推断任务类型和输出形状
+5. 可通过底部按钮清空画布，或使用快捷键操作
+
+## ⌨️ 快捷键
+
+- `Delete/Backspace`：删除选中节点及其连接
+- `Ctrl + 单击`：多选节点
+- `双击节点`：配置节点参数
+- `鼠标滚轮`：缩放画布
+- `右键拖拽`：平移画布
+
+更多快捷键可点击左上角“快捷键+”按钮查看。
+
+## 📁 目录结构
+
+```
+src/
+  components/    # 主要功能组件（画布、侧边栏、配置弹窗等）
+  App.jsx        # 应用入口
+  main.jsx       # 渲染入口
+  store.js       # 状态管理
+public/          # 静态资源
+```
+
+## 📚 相关文档
+
+- [使用说明](./使用说明.md)
+- [智能输出层系统说明](./智能输出层系统说明.md)
+- [位移Bug修复说明](./位移Bug修复说明.md)
+
+## 🛠️ 技术栈
+
+- React 18
+- Vite
+- ReactFlow
+- Zustand
+
+## 📝 许可
+
+本项目仅供学习与交流，禁止用于商业用途。
+
+---
+
+如需详细功能说明，请参阅
