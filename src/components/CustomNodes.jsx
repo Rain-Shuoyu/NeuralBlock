@@ -2,14 +2,19 @@ import React from 'react';
 import { Handle, Position } from 'reactflow';
 
 // 辅助函数：格式化配置信息显示
-const formatConfig = (config, type) => {
+const formatConfig = (config, type, actualInputShape) => {
   if (!config) return '';
   
   switch (type) {
     case 'pool':
       return `${config.poolingType === 'max' ? '最大' : '平均'}池化 ${config.kernelSize}×${config.kernelSize} 步长${config.stride}`;
     case 'conv':
-      return `${config.kernelWidth}×${config.kernelHeight} 步长${config.stride} 填充${config.padding}`;
+      let inputCh = config.inputChannels === 'auto' ? '自动' : config.inputChannels;
+      // 如果有实际输入形状信息，显示实际的输入通道数
+      if (actualInputShape && actualInputShape.channels && config.inputChannels === 'auto') {
+        inputCh = actualInputShape.channels;
+      }
+      return `${config.kernelWidth || 3}×${config.kernelHeight || 3} 步长${config.stride || 1} 填充${config.padding || 0} | ${inputCh}→${config.outputChannels || 32}通道`;
     case 'dense':
       return `${config.units}神经元 ${config.activation.toUpperCase()}`;
     default:
@@ -282,7 +287,7 @@ export const MiddleNode = ({ data, id }) => {
     }
   };
 
-  const configText = formatConfig(data.config, data.type);
+  const configText = formatConfig(data.config, data.type, data.actualInputShape);
 
   return (
     <div 

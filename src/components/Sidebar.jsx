@@ -10,7 +10,7 @@ const types = [
   { type: 'output', label: '输出层', color: '#A78BFA' },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ isDarkMode }) {
   const onDragStart = (event, nodeType) => {
     console.log('拖拽开始:', nodeType); // 调试信息
     event.dataTransfer.setData('application/reactflow', JSON.stringify(nodeType));
@@ -18,7 +18,10 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${isDarkMode ? 'dark' : ''}`} style={{
+      backgroundColor: isDarkMode ? '#1f2937' : '#ffffff',
+      borderRight: isDarkMode ? '1px solid #374151' : '1px solid #e5e7eb'
+    }}>
       {types.map((item) => {
         // 为不同类型的节点定制样式
         const getItemStyle = (type) => {

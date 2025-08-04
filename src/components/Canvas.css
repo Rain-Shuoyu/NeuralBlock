@@ -1,7 +1,35 @@
 /* 自定义 ReactFlow 样式 */
 
 /* 优化连接线样式 */
-.react-flow__edge-path {
+.react-f/* 选中的连接线 */
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #7c3aed !important;
+  stroke-width: 5px !important;
+}
+
+/* Controls组件黑夜模式样式 */
+.dark-controls .react-flow__controls {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-controls .react-flow__controls-button {
+  background-color: #374151 !important;
+  color: #f9fafb !important;
+  border: 1px solid #4b5563 !important;
+  border-bottom: none !important;
+}
+
+.dark-controls .react-flow__controls-button:hover {
+  background-color: #4b5563 !important;
+}
+
+.dark-controls .react-flow__controls-button:last-child {
+  border-bottom: 1px solid #4b5563 !important;
+}
+
+.dark-controls .react-flow__controls-button svg {
+  fill: #f9fafb !important;
+}edge-path {
   stroke-width: 4px !important;
   stroke: #2563eb !important;
   filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.3));
@@ -148,4 +176,49 @@
     opacity: 1;
     transform: translate(-50%, 0);
   }
+}
+
+/* 黑夜模式下的Background网格样式 */
+.dark .react-flow__background {
+  background-color: #111827 !important;
+}
+
+.dark .react-flow__background-pattern {
+  stroke: #374151 !important;
+  opacity: 0.5 !important;
+}
+
+/* 黑夜模式下的边缘样式 */
+.dark .react-flow__edge-path {
+  stroke: #60a5fa !important;
+  filter: drop-shadow(0 2px 4px rgba(96, 165, 250, 0.3));
+}
+
+.dark .react-flow__arrowhead {
+  fill: #60a5fa !important;
+}
+
+.dark .react-flow__connectionline {
+  stroke: #60a5fa !important;
+}
+
+/* 黑夜模式下选中的边缘 */
+.dark .react-flow__edge.selected .react-flow__edge-path {
+  stroke: #c4b5fd !important;
+}
+
+/* 黑夜模式下的MiniMap */
+.dark .react-flow__minimap {
+  background-color: #374151 !important;
+  border: 1px solid #4b5563 !important;
+}
+
+.dark .react-flow__minimap-mask {
+  fill: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* 黑夜模式下的节点选择框 */
+.dark .react-flow__nodesselection-rect {
+  fill: rgba(96, 165, 250, 0.1) !important;
+  stroke: #60a5fa !important;
 }

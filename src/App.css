@@ -6,6 +6,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.app-container.dark {
+  background-color: #111827;
+  color: #f9fafb;
 }
 
 .main-content {
